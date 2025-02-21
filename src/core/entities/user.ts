@@ -1,11 +1,13 @@
 // Entities
 import { Entity, EntityRequest } from "@/core/entities/entity";
-
+import { Task } from "@/core/entities/task";
 export interface UserProps extends EntityRequest {
   first_name: string;
   last_name: string;
   email: string;
   phone: string;
+
+  tasks?: Task[];
 }
 
 export class User extends Entity<UserProps> {
@@ -27,6 +29,10 @@ export class User extends Entity<UserProps> {
 
   get phone() {
     return this.props.phone;
+  }
+
+  get tasks() {
+    return this.props.tasks;
   }
 
   static create(props: UserProps) {
