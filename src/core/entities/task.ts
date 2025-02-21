@@ -45,6 +45,22 @@ export class Task extends Entity<TaskProps> {
     return this.props.user;
   }
 
+  set title(title: string) {
+    this.props.title = title;
+  }
+
+  set description(description: string) {
+    this.props.description = description;
+  }
+
+  set status(status: TaskStatus) {
+    this.props.status = status;
+  }
+
+  set due_date(due_date: Date) {
+    this.props.due_date = due_date;
+  }
+
   static create(props: Optional<TaskProps, "status">) {
     return new Task({
       ...props,
