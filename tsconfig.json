@@ -4,7 +4,8 @@
     "module": "commonjs",
     "baseUrl": "./",
     "paths": {
-      "@/core/*": ["src/core/*"]
+      "@/core/*": ["src/core/*"],
+      "@/test/*": ["src/test/*"]
     },
     "resolveJsonModule": true,
     "esModuleInterop": true,
