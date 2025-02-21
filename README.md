@@ -33,7 +33,7 @@
 5. Run using docker-compose:
 
 ```bash
-  docker-compose up --build
+  docker-compose up --build -d
 ```
 
 6. Run the seed:
