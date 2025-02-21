@@ -39,7 +39,7 @@
 6. Run the seed:
 
 ```bash
-  npx prisma migrate dev && pnpm run seed
+  npx prisma migrate dev && npx prisma db seed
 ```
 
 ### 🧪 Testing
