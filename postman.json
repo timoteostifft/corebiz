@@ -1,0 +1,125 @@
+{
+  "info": {
+    "_postman_id": "452a19b6-f7c4-4906-8a6c-da056d85db40",
+    "name": "corebiz",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+    "_exporter_id": "19890495"
+  },
+  "item": [
+    {
+      "name": "Buscar tarefa",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{server}}/tasks/:id",
+          "host": ["{{server}}"],
+          "path": ["tasks", ":id"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "a0cf332c-0018-475d-b09e-670351163689"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Listar tarefas",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{server}}/tasks?page=1",
+          "host": ["{{server}}"],
+          "path": ["tasks"],
+          "query": [
+            {
+              "key": "title",
+              "value": "Testando",
+              "disabled": true
+            },
+            {
+              "key": "page",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Criar tarefa",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"user_id\": \"123e4567-e89b-12d3-a456-426614174000\",\n    \"title\": \"Complete project documentation\",\n    \"description\": \"Write and review all technical documentation for the current sprint\",\n    \"due_date\": \"2024-03-25T10:00:00.000Z\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "{{server}}/tasks"
+      },
+      "response": []
+    },
+    {
+      "name": "Atualizar tarefa",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"title\": \"Testando atualização\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{server}}/tasks/:id",
+          "host": ["{{server}}"],
+          "path": ["tasks", ":id"],
+          "query": [
+            {
+              "key": "name",
+              "value": "João",
+              "disabled": true
+            }
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": "90e48a19-da06-4e05-9277-aa73fc5a1859"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Deletar tarefa",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{server}}/tasks/:id",
+          "host": ["{{server}}"],
+          "path": ["tasks", ":id"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "90e48a19-da06-4e05-9277-aa73fc5a1859"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
