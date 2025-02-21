@@ -11,4 +11,5 @@ export interface TaskRepository {
   list(filters: TaskRepositoryFilters, page: number): Promise<Task[]>;
   create(task: Task): Promise<void>;
   update(task: Task): Promise<void>;
+  delete(task: Task): Promise<void>;
 }
