@@ -40,6 +40,7 @@ export class CreateTaskUseCase {
       description,
       due_date,
       status,
+      user_id: user.id,
     });
 
     await this.taskRepository.create(task);
