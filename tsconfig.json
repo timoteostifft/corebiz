@@ -5,7 +5,8 @@
     "baseUrl": "./",
     "paths": {
       "@/core/*": ["src/core/*"],
-      "@/test/*": ["src/test/*"]
+      "@/test/*": ["src/test/*"],
+      "@/infra/*": ["src/infra/*"]
     },
     "resolveJsonModule": true,
     "esModuleInterop": true,
