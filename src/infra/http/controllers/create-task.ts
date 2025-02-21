@@ -12,11 +12,13 @@ import { container } from "@/infra/container";
 import { Task } from "@/core/entities/task";
 
 export const createTaskSchema = Joi.object({
-  user_id: Joi.string().uuid().required(),
-  title: Joi.string().required(),
-  description: Joi.string().required(),
-  due_date: Joi.date().required(),
-  status: Joi.string().valid(...Task.statuses),
+  body: Joi.object({
+    user_id: Joi.string().uuid().required(),
+    title: Joi.string().required(),
+    description: Joi.string().required(),
+    due_date: Joi.date().required(),
+    status: Joi.string().valid(...Task.statuses),
+  }),
 });
 
 export const createTaskController = async (

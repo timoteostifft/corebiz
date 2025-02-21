@@ -24,8 +24,6 @@ export const listTasksController = async (
   try {
     const { error, value: query } = listTasksSchema.validate(request.query);
 
-    console.log(query);
-
     if (error) {
       throw error;
     }

@@ -4,7 +4,7 @@ import { asFunction, AwilixContainer } from "awilix";
 // Use Cases
 import { ListTasksUseCase } from "@/core/use-cases/list-tasks";
 import { CreateTaskUseCase } from "@/core/use-cases/create-task";
-
+import { UpdateTaskUseCase } from "@/core/use-cases/update-task";
 export function registerUseCases(container: AwilixContainer) {
   container.register(
     "listTasksUseCase",
@@ -16,5 +16,9 @@ export function registerUseCases(container: AwilixContainer) {
       ({ userRepository, taskRepository }) =>
         new CreateTaskUseCase(userRepository, taskRepository)
     )
+  );
+  container.register(
+    "updateTaskUseCase",
+    asFunction(({ taskRepository }) => new UpdateTaskUseCase(taskRepository))
   );
 }
