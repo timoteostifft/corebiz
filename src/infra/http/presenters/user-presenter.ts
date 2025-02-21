@@ -8,7 +8,7 @@ import { View } from "@/infra/types/view";
 import { TaskPresenter } from "@/infra/http/presenters/task-presenter";
 
 export class UserPresenter {
-  static toView(user?: User): View<User> {
+  static toHttp(user?: User): View<User> {
     if (user) {
       return {
         id: user.id.value,
@@ -17,7 +17,7 @@ export class UserPresenter {
         phone: user.phone,
         created_at: user.created_at,
         updated_at: user.updated_at,
-        tasks: user.tasks?.map((task) => TaskPresenter.toView(task)),
+        tasks: user.tasks?.map((task) => TaskPresenter.toHttp(task)),
       };
     }
   }

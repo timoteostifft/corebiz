@@ -32,7 +32,7 @@ export const listTasksController = async (
 
     const tasks = await sut.execute(query);
 
-    return response.status(200).json(tasks.map(TaskPresenter.toView));
+    return response.status(200).json(tasks.map(TaskPresenter.toHttp));
   } catch (error) {
     next(error);
   }

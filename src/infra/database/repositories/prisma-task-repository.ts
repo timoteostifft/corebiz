@@ -23,6 +23,7 @@ export class PrismaTaskRepository implements TaskRepository {
           mode: "insensitive",
         },
       },
+      include: { user: true },
     });
 
     if (!task) {

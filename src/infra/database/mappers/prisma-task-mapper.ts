@@ -5,6 +5,9 @@ import { Task } from "@/core/entities/task";
 // Libraries
 import { Prisma } from "@prisma/client";
 
+// Mappers
+import { PrismaUserMapper } from "./prisma-user-mapper";
+
 export class PrismaTaskMapper {
   static toPrisma(task: Task): Prisma.TaskUncheckedCreateInput {
     return {
@@ -17,7 +20,7 @@ export class PrismaTaskMapper {
     };
   }
 
-  static toDomain(raw: Prisma.TaskGetPayload<{}>) {
+  static toDomain(raw: Prisma.TaskGetPayload<{ include: { user?: true } }>) {
     return Task.create({
       id: new UUID(raw.id),
       title: raw.title,
@@ -25,6 +28,9 @@ export class PrismaTaskMapper {
       status: raw.status,
       due_date: raw.due_date,
       user_id: new UUID(raw.user_id),
+      ...(raw.user && { user: PrismaUserMapper.toDomain(raw.user) }),
+      created_at: raw.createdAt,
+      updated_at: raw.updatedAt,
     });
   }
 }
