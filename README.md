@@ -19,7 +19,7 @@
 2. Create your own .env copying env.example.
 
 ```bash
-  cp /.env.example /.env
+  cp .env.example .env
 ```
 
 3. Ensure you have [pnpm](https://pnpm.io/pt/) installed
