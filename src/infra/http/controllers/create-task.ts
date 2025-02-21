@@ -12,14 +12,16 @@ import { container } from "@/infra/container";
 import { Task } from "@/core/entities/task";
 
 export const createTaskSchema = Joi.object({
-  body: Joi.object({
-    user_id: Joi.string().uuid().required(),
-    title: Joi.string().required(),
-    description: Joi.string().required(),
-    due_date: Joi.date().required(),
-    status: Joi.string().valid(...Task.statuses),
-  }),
-});
+  user_id: Joi.string().uuid().required(),
+  title: Joi.string().required(),
+  description: Joi.string().required(),
+  due_date: Joi.date().required(),
+  status: Joi.string().valid(...Task.statuses),
+})
+  .required()
+  .messages({
+    "object.missing": "Pelo menos um campo deve ser fornecido.",
+  });
 
 export const createTaskController = async (
   request: Request,

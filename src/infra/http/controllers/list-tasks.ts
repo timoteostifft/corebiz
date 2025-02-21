@@ -11,8 +11,8 @@ import { container } from "@/infra/container";
 // Presenters
 import { TaskPresenter } from "@/infra/http/presenters/task-presenter";
 
-export const listTasksSchema = Joi.object({
-  page: Joi.number().required(),
+export const listTasksQuery = Joi.object({
+  page: Joi.number().integer().required(),
   title: Joi.string().optional(),
 });
 
@@ -22,7 +22,7 @@ export const listTasksController = async (
   next: NextFunction
 ) => {
   try {
-    const { error, value: query } = listTasksSchema.validate(request.query);
+    const { error, value: query } = listTasksQuery.validate(request.query);
 
     if (error) {
       throw error;
